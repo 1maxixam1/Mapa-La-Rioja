@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mapalert-server
+    env: node
+    rootDir: server
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    postDeployCommand: "npm run migrate"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "*.netlify.app,http://localhost:5173"

@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_DB: mapalert
+      POSTGRES_USER: mapalert
+      POSTGRES_PASSWORD: mapalert
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata:

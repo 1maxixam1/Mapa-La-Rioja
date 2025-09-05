@@ -1,0 +1,21 @@
+.wrapper{ position:relative; width:24px; height:24px; }
+.core{
+  position:absolute; inset:0; border-radius:9999px; border:2px solid white;
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+  animation: colorSwap 1s linear infinite alternate;
+}
+@keyframes colorSwap{ 0%{background:#ef4444;} 100%{background:#3b82f6;} }
+.pulse{
+  position:absolute; left:50%; top:50%; width:24px; height:24px; transform:translate(-50%,-50%);
+  border-radius:9999px; pointer-events:none;
+  background: conic-gradient(#ef4444 0 180deg, #3b82f6 180deg 360deg);
+  -webkit-mask: radial-gradient(circle at center, transparent 55%, black 56%);
+          mask: radial-gradient(circle at center, transparent 55%, black 56%);
+  opacity:.7;
+  animation: pulseExpand 2s ease-out infinite;
+}
+@keyframes pulseExpand{
+  0%{ transform:translate(-50%,-50%) scale(1); opacity:.7; }
+  70%{ transform:translate(-50%,-50%) scale(3); opacity:0; }
+  100%{ transform:translate(-50%,-50%) scale(3.2); opacity:0; }
+}
